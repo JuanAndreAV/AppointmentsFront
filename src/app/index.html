@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans p-4">
+    <!-- Contenedor principal -->
+    <div class="container mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-blue-600 mb-6">Registro de Citas Odontológicas</h2>
+
+        <!-- Formulario de citas -->
+        <div class="space-y-4">
+            <!-- Nombre del Paciente -->
+            <div>
+                <label for="patientName" class="block text-gray-700 font-medium">Nombre del Paciente</label>
+                <input type="text" id="patientName" placeholder="ej: Juan Pérez"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Teléfono del Paciente -->
+            <div>
+                <label for="phone" class="block text-gray-700 font-medium">Teléfono</label>
+                <input type="tel" id="phone" placeholder="ej: 555-1234"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Tipo de Consulta -->
+            <div>
+                <label for="consultType" class="block text-gray-700 font-medium">Tipo de Consulta</label>
+                <select id="consultType"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="Limpieza">Limpieza Dental</option>
+                    <option value="Extracción">Extracción</option>
+                    <option value="Ortodoncia">Ortodoncia</option>
+                    <option value="Blanqueamiento">Blanqueamiento</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <!-- Fecha de la Cita -->
+            <div>
+                <label for="date" class="block text-gray-700 font-medium">Fecha</label>
+                <input type="date" id="date"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Hora de la Cita -->
+            <div>
+                <label for="time" class="block text-gray-700 font-medium">Hora</label>
+                <input type="time" id="time"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Motivo de la Consulta -->
+            <div>
+                <label for="reason" class="block text-gray-700 font-medium">Motivo</label>
+                <input type="text" id="reason" placeholder="ej: Dolor de muela"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Mensaje de error -->
+            <p id="formError" class="text-red-500 text-sm"></p>
+
+            <!-- Botones del formulario -->
+            <div id="box-btn" class="flex space-x-4">
+                <button onclick="enviarFormulario()" id="enviarBtn"
+                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Enviar
+                </button>
+                <button onclick="patchAppoinment()" id="editarBtn"
+                    class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                    Editar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-6">
+
+    <!-- Botón para mostrar citas -->
+    <div class="container mx-auto">
+        <button id="mostrarCitas"
+            class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+            Mostrar Citas
+        </button>
+    </div>
+
+    <!-- Tabla de citas -->
+    <div class="container mx-auto mt-6 overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg shadow-md">
+            <thead class="bg-blue-600 text-white">
+                <tr>
+                    <th class="p-3">Nombre del Paciente</th>
+                    <th class="p-3">Teléfono</th>
+                    <th class="p-3">Tipo de Consulta</th>
+                    <th class="p-3">Fecha</th>
+                    <th class="p-3">Hora</th>
+                    <th class="p-3">Motivo</th>
+                    <th class="p-3">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="citas" class="text-gray-700">
+                <!-- Aquí se llenará la data -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
